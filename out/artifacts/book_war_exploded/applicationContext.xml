@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<beans>
+    <bean id="page" class="com.atguigu.myssm.myspringmvc.PageController"></bean>
+
+    <!--dao-->
+    <bean id="userDAO" class="com.atguigu.book.dao.impl.UserDAOImpl"></bean>
+
+    <!--service-->
+    <bean id="userService" class="com.atguigu.book.service.impl.UserServiceImpl">
+        <property name="userDAO" ref="userDAO"/>
+    </bean>
+
+    <!--controller-->
+    <bean id="user" class="com.atguigu.book.controller.UserController">
+        <property name="userService" ref="userService"/>
+    </bean>
+</beans>
